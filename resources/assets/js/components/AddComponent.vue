@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="year" class="col-md-4 col-form-label text-md-right">Price</label>
+                        <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" v-model="coin.price"  required>
                         </div>
@@ -28,9 +28,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button class="btn btn-primary">
-                                Add
-                            </button>
+                            <button class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </form>
@@ -52,7 +50,7 @@
                 let uri = 'coins';
                 this.axios.post(uri, this.coin).then((response) => {
                     console.log(response);
-                    window.location.reload();
+                    //window.location.reload();
                 });
             }
         }

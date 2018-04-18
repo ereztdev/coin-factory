@@ -6,10 +6,11 @@
  */
 import VueAxios from 'vue-axios';
 import axios from 'axios';
+import flash from 'vue-flash';
 
 require('./bootstrap');
-
 window.Vue = require('vue');
+
 Vue.use(VueAxios, axios);
 
 /**
@@ -19,6 +20,8 @@ Vue.use(VueAxios, axios);
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('api-call', require('./components/PostComponent'));
+
 Vue.component('coin-add-component', require('./components/AddComponent'));
 const app = new Vue({
     el: '#app'

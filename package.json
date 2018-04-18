@@ -19,5 +19,8 @@
         "popper.js": "^1.12",
         "vue": "^2.5.7",
         "vue-axios": "^2.1.1"
+    },
+    "dependencies": {
+        "vue-flash": "^2.1.2"
     }
 }
