@@ -5,32 +5,44 @@
 
             <div class="card-body">
                 <form @submit.prevent="addCoin">
+                    <div v-if="errors.length">
+                        <b>Please correct the following error(s):</b>
+                        <ul>
+                            <li v-for="error in errors">{{ error }}</li>
+                        </ul>
+                    </div>
+
                     <div class="form-group row">
                         <label for="name" class="col-sm-4 col-form-label text-md-right">Name</label>
                         <div class="col-md-6">
-                            <input id="email" type="text" class="form-control" v-model="coin.name" required autofocus>
+                            <input id="email" type="text" class="form-control" v-model="coin.name" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="year" class="col-md-4 col-form-label text-md-right">Year</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" v-model="coin.year"  required>
+                            <input type="text" class="form-control" v-model="coin.year">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" v-model="coin.price"  required>
+                            <input type="text" class="form-control" v-model="coin.price">
                         </div>
                     </div>
 
                     <div class="form-group row mb-0">
                         <div class="col-md-8 offset-md-4">
-                            <button class="btn btn-primary">Add</button>
+                            <button @click="validateMe()" :title="title" class="btn btn-primary">
+                                Add
+                            </button>
                         </div>
+
+
                     </div>
+
                 </form>
             </div>
         </div>
@@ -41,7 +53,10 @@
     export default {
         data() {
             return {
-                coin: {}
+                coin: {},
+                errors: {},
+                title: 'you sure buddy?',
+                isDisabled: true
             }
         },
         methods: {
@@ -50,8 +65,19 @@
                 let uri = 'coins';
                 this.axios.post(uri, this.coin).then((response) => {
                     console.log(response);
+                    this.coin.name = '';
+                    this.coin.year = '';
+                    this.coin.price = '';
                     //window.location.reload();
                 });
+            },
+            validateMe(e) {
+                if (this.coin.name && this.coin.year && this.coin.price) return true;
+                this.errors = [];
+                if (!this.coin.name) this.errors.push("Coin Name required.");
+                if (!this.coin.year) this.errors.push("Coin Year required.");
+                if (!this.coin.price) this.errors.push("Coin purchase price required.");
+                e.preventDefault();
             }
         }
     }
