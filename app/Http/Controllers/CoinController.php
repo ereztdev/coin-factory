@@ -17,4 +17,11 @@ class CoinController extends Controller
 
         return response()->json(['success' => 'Coin has been added'], 200);
     }
+
+    public  function index(){
+        $coins = Coin::get();
+        return response()->json($coins);
+
+
+    }
 }
