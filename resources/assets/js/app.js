@@ -13,16 +13,19 @@ window.Vue = require('vue');
 
 Vue.use(VueAxios, axios);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
+const eventBus = new Vue() ;// Single event bus
+Vue.mixin({
+    data: function () {
+        return {
+            eventBus: eventBus
+        }
+    }
+});
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('api-call', require('./components/PostComponent'));
-
+//Vue.component('api-call', require('./components/PostComponent'));
 Vue.component('coin-add-component', require('./components/AddComponent'));
+Vue.component('coin-get-component', require('./components/GetComponent'));
+
 const app = new Vue({
     el: '#app'
 });
