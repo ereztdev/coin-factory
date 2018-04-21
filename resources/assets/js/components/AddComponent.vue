@@ -68,7 +68,7 @@
                     this.coin.name = '';
                     this.coin.year = '';
                     this.coin.price = '';
-                    //window.location.reload();
+                    window.location.reload();
                 });
             },
             validateMe(e) {
