@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-8">
+    <div>
         <div class="card card-default">
             <div class="card-header">Add Coin</div>
 

@@ -1,5 +1,6 @@
 <template>
-    <table v-if="coins">
+    <div class="container">
+    <table class="coin-table" v-if="coins">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -13,7 +14,7 @@
             <td>{{coin.year}}</td>
         </tr>
     </table>
-    
+    </div>
 </template>
 
 <script>
