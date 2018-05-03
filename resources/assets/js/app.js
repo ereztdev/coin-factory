@@ -12,20 +12,11 @@ window.Vue = require('vue');
 
 Vue.use(VueAxios, axios);
 
-const eventBus = new Vue() ;// Single event bus
-Vue.mixin({
-    data: function () {
-        return {
-            eventBus: eventBus
-        }
-    }
-});
-
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 // Vue.component('api-call', require('./components/PostComponent'));
 Vue.component('coin-add-component', require('./components/AddComponent'));
 Vue.component('coin-get-component', require('./components/GetComponent'));
-
+Vue.component('coupon-component', require('./components/CouponComponent'));
 
 const app = new Vue({
     el: '#app'

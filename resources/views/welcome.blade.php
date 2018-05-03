@@ -42,6 +42,7 @@
 <div class="container" id="app">
     <coin-add-component></coin-add-component>
     <coin-get-component></coin-get-component>
+
     {{--<api-call></api-call>--}}
 </div>
 <script>
