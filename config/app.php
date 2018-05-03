@@ -209,6 +209,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*Added Erez*/
+        'Throttle' => GrahamCampbell\Throttle\Facades\Throttle::class,
 
 
     ],
