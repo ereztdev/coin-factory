@@ -12,6 +12,7 @@ class CoinController extends Controller
         $coin->name = $request->name;
         $coin->year = $request->year;
         $coin->price = $request->price;
+        $coin->coupon = $request->coupon ? $request->coupon : 'no coupon';
 
         $coin->save();
 
