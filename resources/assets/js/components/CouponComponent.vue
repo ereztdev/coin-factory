@@ -8,11 +8,11 @@
 <script>
     export default {
         name: "CouponComponent",
-        // data() {
-        //     return{
-        //         couponApplied: false,
-        //     }
-        // },
+        data() {
+            return{
+                couponApplied: false,
+            }
+        },
 
         methods: {
             onCouponApplied() {

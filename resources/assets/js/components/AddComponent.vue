@@ -10,7 +10,7 @@
                     <div v-if="errors.length">
                         <b>Please correct the following error(s):</b>
                         <ul>
-                            <li v-for="error in errors">{{ error }}</li>
+                            <li class="redErrors" v-for="error in errors">{{ error }}</li>
                         </ul>
                     </div>
                     <div class="form-group row">
@@ -67,6 +67,10 @@
                 this.couponApplied = true;
             },
             addCoin() {
+                if (this.errors) {
+                    console.log('breaking');
+                    return false;
+                }
                 // alert('submitted');
                 let uri = 'coins';
                 this.axios.post(uri, this.coin).then((response) => {
@@ -78,12 +82,12 @@
                 });
             },
             validateMe(e) {
+
                 if (this.coin.name && this.coin.year && this.coin.price) return true;
                 this.errors = [];
                 if (!this.coin.name) this.errors.push("Coin Name required.");
                 if (!this.coin.year) this.errors.push("Coin Year required.");
                 if (!this.coin.price) this.errors.push("Coin purchase price required.");
-                e.preventDefault();
             }
         }
     }
