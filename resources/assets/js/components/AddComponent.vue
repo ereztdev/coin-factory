@@ -67,8 +67,9 @@
                 this.couponApplied = true;
             },
             addCoin() {
-                if (this.errors) {
-                    console.log('breaking');
+                console.log();
+                if (!this.validateMe()) {
+                    console.log('breaking this.errors', JSON.stringify(this.errors));
                     return false;
                 }
                 // alert('submitted');
@@ -82,9 +83,9 @@
                 });
             },
             validateMe(e) {
-
+                this.errors = {};
                 if (this.coin.name && this.coin.year && this.coin.price) return true;
-                this.errors = [];
+
                 if (!this.coin.name) this.errors.push("Coin Name required.");
                 if (!this.coin.year) this.errors.push("Coin Year required.");
                 if (!this.coin.price) this.errors.push("Coin purchase price required.");
