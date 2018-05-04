@@ -83,7 +83,7 @@
                 });
             },
             validateMe(e) {
-                this.errors = {};
+                this.errors = [];
                 if (this.coin.name && this.coin.year && this.coin.price) return true;
 
                 if (!this.coin.name) this.errors.push("Coin Name required.");
