@@ -39,10 +39,12 @@
          </div>
      </div>
  </div>--}}
+
 <div class="container" id="app">
+
+    <auth-component></auth-component>
     <coin-add-component></coin-add-component>
     <coin-get-component></coin-get-component>
-
     {{--<api-call></api-call>--}}
 </div>
 <script>
@@ -54,3 +56,9 @@
 
 </body>
 </html>
+<script>
+    import Auth from "../assets/js/components/Auth";
+    export default {
+        components: {Auth}
+    }
+</script>

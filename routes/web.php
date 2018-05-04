@@ -11,8 +11,13 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/coins', 'CoinController@store');
 Route::get('/list', 'CoinController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

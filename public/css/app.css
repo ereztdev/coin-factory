@@ -10399,3 +10399,7 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.redErrors {
+  color: red;
+}
+
